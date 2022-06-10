@@ -4,7 +4,22 @@ on:
   [push, workflow_dispatch]
 
 jobs:
+  set-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: set_var
+        run: |
+          content=`cat inputs.json`
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=inputJson::$content"
+      - run: |
+          echo "${{ fromJson(steps.set_var.outputs.inputJson).version }}"
+  
   call-workflow:
+    needs: set-inputs
     uses: hannnnk1231/testActions/.github/workflows/test.yml@main
     with:
-      username: hank
+      username: ${{ needs.set-inputs.outputs.inputJson }}
