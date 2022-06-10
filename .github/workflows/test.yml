@@ -17,7 +17,7 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=inputJson::$content"
       - run: |
-          echo "${{ fromJson(steps.set_var.outputs.inputJson).version }}"
+          echo "${{ steps.set_var.outputs.inputJson }}"
   
   call-workflow:
     needs: set-inputs
