@@ -19,10 +19,10 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=inputJson::$content"
       - run: |
-          echo ${{ steps.set_var.outputs.inputJson }}
+          echo "${{ steps.set_var.outputs.inputJson }}"
   
   call-workflow:
     needs: set-inputs
     uses: hannnnk1231/testActions/.github/workflows/test.yml@main
     with:
-      username: ${{ needs.set-inputs.outputs.inputJson }}
+      username: "${{ needs.set-inputs.outputs.inputJson }}"
