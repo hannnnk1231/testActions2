@@ -6,6 +6,8 @@ on:
 jobs:
   set-inputs:
     runs-on: self-hosted
+    container:
+      image: node:14.15.0-alpine3.12
     outputs:
       inputJson: ${{ steps.set_var.outputs.inputJson }}
     steps:
