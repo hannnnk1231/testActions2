@@ -1,0 +1,65 @@
+name: Actions Test
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+  
+  job2:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+  job3:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+        
+  job4:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+  job5:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+
+  job6:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
+
+  job7:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build docker
+        run: |
+          docker build -t test .
